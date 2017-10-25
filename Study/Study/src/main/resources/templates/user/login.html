@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>学生管理系统</title>
+<link rel="stylesheet" th:href="@{/css/index.css}"/>
+</head>
+<body style="background:#002f5d">
+<div class="MZ_L_bg">
+    <div class="MZ_L_ro">
+        <img class="MZ_L_gear" src="../image/gear.gif"/>
+        <div class="MZ_L_dl">
+            <div class="MZ_L_dl_hy">欢迎登录</div>
+			<form method="post" th:action="@{/login/check}">
+            <div class="MZ_L_user">
+                <a>用户名 :</a>
+                <input class="MZ_L_user_k" type="text" value="" name="student_id"/>
+            </div>
+            <div class="MZ_L_pass">
+                <a> 密&nbsp;&nbsp;  码 :</a>
+                <input class="MZ_L_pass_k" type="password" value="" name="passwd"/>
+				<font th:text="${info}" ></font>
+            </div>
+            <div>  
+             <img alt="验证码" class="yzm" onclick = "this.src='/defaultKaptcha?d='+new Date()*1" src="/defaultKaptcha" />  
+            </div>
+            
+            <div class="MZ_L_user">
+            <a>验证码 :</a>
+    <input type="text" name="vrifyCode" class="yzm_input"/>
+    </div>
+            <div class="MZ_L_login">
+                <input type="submit" value="登录"/>
+            </div>
+			
+            <div class="MZ_L_zc">
+                <a th:href="@{/register}">注册新账号</a>
+                <br />
+                <a class="MZ_L_error" th:text="${#httpServletRequest.getParameter('error')}" style="color:red;"></a>
+            </div>
+             </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

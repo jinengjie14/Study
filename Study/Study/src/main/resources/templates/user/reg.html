@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/register.css}"/>
+</head>
+<body style="background: #002f5d">
+<div class="MZ_R_bg">
+    <div class="MZ_R_ro">
+    <img class="MZ_R_gear" src="../image/gear.gif"/>
+      <div class="MZ_R_regis">
+      <div class="MZ_R_regis_title">注册我的账号</div>
+      
+<form method="post" th:action="@{/user/register}">
+  <ul>
+   <li style="margin-top:40px;"><a>我的学号:&nbsp;</a><input type="text" id="MZ_R_regis_num" name="student_id" placeholder="请输入学号(前缀为20--长度为9-15纯数字)"/></li>
+   <li><a>我的姓名:&nbsp;</a><input type="text" id="MZ_R_regis_user" placeholder="请输入真实姓名" name="uname"/></li>
+   <li><a>电子邮箱:&nbsp;</a><input type="text" id="MZ_R_regis_mail" placeholder="请输入邮箱账号" name="mail"/></li>
+   <li><a>登录密码:</a> <input type="password" id="MZ_R_regis_pass" placeholder="请输入密码(6-16个字符)" name="passwd"/></li>
+   <li><a>确认密码:</a> <input type="password" id="MZ_R_regis_qpass" placeholder="请再次输入密码" name="passwd2"/></li>
+   <li><a>安全密码:&nbsp;</a><input type="password" name="safe_password" id="MZ_R_regis_qpass" placeholder="6个字符，必须为纯数字，帮助找回密码"/></li>
+   <li><div><a>验 证 码&nbsp;:&nbsp;</a><input type="text" name="vrifyCode" class="yzm" style="height:14px" placeholder="请输入验证码"/></div><img alt="验证码" class="yzm_img" onclick = "this.src='/defaultKaptcha?d='+new Date()*1" src="/defaultKaptcha" /> </li>
+    <li style="text-align:center;margin-left:-10%"><input class="layui-btn" type="submit" value="立刻注册" id="MZ_R_regis_submit"/></li>
+<br />
+                <div class="MZ_L_zc"><a class="MZ_L_error" th:text="${#httpServletRequest.getParameter('error')}" style="color:red;"></a></div>
+  </ul>
+</form>
+</div>
+</div>
+</div>
+<script th:src="@{/js/register.js}"></script>
+</body>
+</html>
